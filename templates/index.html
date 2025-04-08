@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table Generator</title>
+
+    <!-- Link to Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ2QF6QZ4d9zIuj5N2t3tW9ih4BvcVjlkD7cDO6b8iGrVq03D1O0T3lgF4g" crossorigin="anonymous">
+</head>
+<body class="bg-light d-flex justify-content-center align-items-center" style="height: 100vh;">
+
+    <div class="container text-center">
+        <h1 class="text-primary mb-4">Multiplication Table Generator</h1>
+
+        <form method="POST" class="mx-auto" style="max-width: 400px;">
+            <div class="mb-3">
+                <label for="number" class="form-label">Enter a number:</label>
+                <input type="number" id="number" name="number" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Generate Table</button>
+        </form>
+
+        {% if table %}
+        <h2 class="text-primary mt-5">Multiplication Table for {{ request.form.get('number') }}:</h2>
+        
+        <table class="table table-striped table-bordered mt-4 mx-auto" style="max-width: 600px;">
+            <thead>
+                <tr>
+                    <th scope="col">Multiplicand</th>
+                    <th scope="col">Result</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in table %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.0/dist/umd/popper.min.js" integrity="sha384-D7eF/f6sMbWTrXn0N6eK9PNeX9fGA50C5caD4S7lk2qlDY9c5jmu+T+K9vRZ5PZf" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0p7bYc8h8+JHGvD4NfW4mB9A1vn2vH/4L1DZZUS+CVxHfxfo" crossorigin="anonymous"></script>
+</body>
+</html>
