@@ -31,3 +31,10 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+
+      - name: Build Docker Image
+        if: success()
+        run: | 
+          docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/basic-app01:latest .
+
+
