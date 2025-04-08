@@ -1,0 +1,11 @@
+name: Ci Pipeline  # Name of the pipeline
+
+
+on:
+  push:           # only at the time of push
+    branches:
+      - main     # Only for the main Branch
+
+jobs:
+  - name: Checkout Code
+    usees: actions/checkout@v3  # upload code on github
