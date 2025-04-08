@@ -7,5 +7,10 @@ on:
       - main     # Only for the main Branch
 
 jobs:
-  - name: Checkout Code
-    usees: actions/checkout@v3  # upload code on github
+  CICD_Pipeline_Test:
+    runs-on: ubuntu-latest
+
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3  # upload code on github
