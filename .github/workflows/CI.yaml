@@ -37,4 +37,9 @@ jobs:
         run: | 
           docker build -t ${{ secrets.DOCKER_HUB_USERNAME }}/basic-app01:latest .
 
+      - name: Push Docker Image
+        if: success()
+        run:
+          docker push ${{ secrets.DOCKER_HUB_USERNAME }}/basic-app01:latest
+
 
