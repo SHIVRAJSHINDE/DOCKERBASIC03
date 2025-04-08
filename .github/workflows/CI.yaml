@@ -14,3 +14,10 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3  # upload code on github
+
+      - name: setting env using Python Installatoin 
+        uses: actions/setup-python@v2
+        with: 
+            python-version: '3.11.7'
+
+
