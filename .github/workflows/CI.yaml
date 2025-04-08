@@ -23,3 +23,7 @@ jobs:
       - name: Install Dependancies
         run: |
           pip install -r requirements.txt
+
+      - name: Login Docker
+        if success():
+        uses: docker/login-action@v2
